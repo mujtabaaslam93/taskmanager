@@ -14,7 +14,7 @@
                 <input id="project_name" type="text" name="name" required>
                 <label for="project_name">Project Name</label>
             </div>
-            <div class="col s6">
+            <div class="col s12">
                 <button type="submit" class="btn waves-effect waves-light">Add Project</button>
             </div>
         </form>
@@ -42,10 +42,16 @@
         </form>
     </div>
 
-    <div x-data="{ activeProject: null }">
+<div x-data="{ activeProject: null, filter: '' }">
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" id="filter" placeholder="Filter projects..." x-model="filter">
+            <label for="filter">Filter Projects</label>
+        </div>
+    </div>
     <div class="row">
         @foreach($projects as $project)
-            <div class="col s12 m6 l4">
+            <div class="col s12 m6 l4" x-show="!filter || '{{ $project->name }}'.toLowerCase().includes(filter.toLowerCase())">
                 <div class="card">
                     <div class="card-content" @click="activeProject = activeProject === {{ $project->id }} ? null : {{ $project->id }}" style="cursor: pointer;">
                         <span class="card-title">{{ $project->name }}</span>
