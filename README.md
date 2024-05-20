@@ -13,8 +13,9 @@
 4. Set up your `.env` file with your database credentials.
 5. Create a new MySQL database and update the `.env` file with the database name.
 6. Run `php artisan migrate` to create the database tables.
-7. Start the development server using `php artisan serve`.
-8. Access the application at `http://localhost:8000`.
+7. Generate application key using `php artisan key:generate`.
+8. Start the development server using `php artisan serve`.
+9. Access the application at `http://localhost:8000`.
 
 ## Features
 - Create, edit, delete, and reorder tasks.
