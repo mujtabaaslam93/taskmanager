@@ -18,7 +18,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $project_id = $request->input('project_id');
-        $maxPriority = Task::where('project_id', $project_id)->max('priority');
+        $maxPriority = Task::where('project_id', $project_id)->max('priority') ?: 0;
         
         $task = new Task();
         $task->name = $request->input('name');
